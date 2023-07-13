@@ -1,7 +1,7 @@
-var msg = new SpeechSynthesisUtterance();
+/* var msg = new SpeechSynthesisUtterance();
 msg.lang = "vi-VN";
 msg.text = "Xin Chào, tôi là Tâm";
-speechSynthesis.speak(msg);
+speechSynthesis.speak(msg); */
 
 let speech = new SpeechSynthesisUtterance();
 speech.lang = "en";
@@ -9,7 +9,10 @@ speech.lang = "en";
 let voices = [];
 window.speechSynthesis.onvoiceschanged = () => {
   voices = window.speechSynthesis.getVoices();
-  //console.log(voices);
+  console.log(voices);
+  
+  voices.push({default: false, 'lang':'vi-VN', 'localService': true, 'name' : 'Microsoft Mark - English (United States)', 'voiceURI' : 'Microsoft Mark - English (United States)'});
+
 
   speech.voice = voices[0];
   let voiceSelect = document.querySelector("#voices");
