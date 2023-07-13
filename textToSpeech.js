@@ -1,9 +1,16 @@
+var msg = new SpeechSynthesisUtterance();
+msg.lang = "vi-VN";
+msg.text = "Xin Chào, tôi là Tâm";
+speechSynthesis.speak(msg);
+
 let speech = new SpeechSynthesisUtterance();
 speech.lang = "en";
 
 let voices = [];
 window.speechSynthesis.onvoiceschanged = () => {
   voices = window.speechSynthesis.getVoices();
+  //console.log(voices);
+
   speech.voice = voices[0];
   let voiceSelect = document.querySelector("#voices");
   voices.forEach((voice, i) => (voiceSelect.options[i] = new Option(voice.name, i)));
